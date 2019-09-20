@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/icon_laptop"
+        android:id="@+id/menu_tem1"
+        android:title="First"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:icon="@drawable/icon_globe"
+        android:title="Second"
+        android:id="@+id/menu_second"
+        app:showAsAction="always"
+        />
+    <item
+        android:icon="@drawable/icon_connection"
+        android:title="Third"
+        android:id="@+id/menu_third"
+        app:showAsAction="always"
+        />
+</menu>
