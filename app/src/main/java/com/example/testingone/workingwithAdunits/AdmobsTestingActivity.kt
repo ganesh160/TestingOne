@@ -23,10 +23,11 @@ class AdmobsTestingActivity : AppCompatActivity() {
 
         val device_ID = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID)
         Log.d("deciceId",""+device_ID)
-        MobileAds.initialize(this) {}
+        MobileAds.initialize(this)
 
-
-        AdRequest.Builder().addTestDevice(device_ID).build()
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+        AdRequest.Builder().addTestDevice("56262FFB61B16A19CFA6E9CAEBFC81F0").build()
 
         adView.adListener= object : AdListener (){
 
