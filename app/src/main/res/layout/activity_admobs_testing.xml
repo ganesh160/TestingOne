@@ -8,6 +8,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,35 +19,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:boxStrokeColor="#B9CF3333"
-            android:textColorHint="#E8BCDB89"
+            android:paddingLeft="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
             <EditText
                 android:hint="Person Name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <Button
-            android:layout_margin="10dp"
-            android:id="@+id/btn_fullscreen_ad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Hello TextView1" />
+            <EditText
+                android:layout_margin="10dp"
+                android:drawableLeft="@drawable/user"
+                android:hint="Person name"
+                android:drawablePadding="15dp"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:layout_margin="10dp"
-            android:id="@+id/btn_show_rewarded_video"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_fullscreen_ad"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="Hello TextView2" />
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:weightSum="2">
+
+            <ImageView
+                android:drawable="@drawable/user"
+                android:layout_width="30dp"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="35dp"/>
+
+            <View
+                android:layout_width="0.1dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#123"/>
+
+            <EditText
+                android:layout_margin="10dp"
+                android:hint="Person name"
+                android:layout_width="0dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
