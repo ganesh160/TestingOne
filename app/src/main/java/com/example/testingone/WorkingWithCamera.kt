@@ -109,8 +109,6 @@ class WorkingWithCamera : AppCompatActivity() {
         }
 
         //Toast.makeText(this,""+multiPartBody.toString(),Toast.LENGTH_SHORT).show()
-
-
     }
 
 }
