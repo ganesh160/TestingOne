@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TabLayout.TablayoutWithViewPager">
+
+        <activity android:name=".sqldatabase.FirstAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,11 +25,12 @@
 
         </activity>
 
-        <activity android:name=".WorkingWithCamera">
+        <activity android:name=".TabLayout.TablayoutWithViewPager">
         </activity>
+        <activity android:name=".WorkingWithCamera"></activity>
         <activity
             android:name=".SampleTestings"
-            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity android:name=".expandablelists.ExpandableListViews" />
         <activity android:name=".workingwithAdunits.AdmobsTestingActivity" />
         <activity android:name=".SideNavigation.HomeActivity" />
