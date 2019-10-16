@@ -6,68 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".sqldatabase.FirstAct">
 
-    <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:orientation="vertical">
 
-
-        <TextView
-            android:text="SQLite databse Insertion "
-            android:gravity="center"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_margin="10dp"
             android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/person_name_input"
-                android:hint="person First name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/person_lname_input"
-                android:hint="person Last name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/person_email_input"
-                android:hint="person Email"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                </androidx.recyclerview.widget.RecyclerView>
 
-        <Button
-            android:id="@+id/save_btn"
-            android:text="Save"
-            android:background="@drawable/button_click_release_color"
-            android:textAllCaps="false"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/adding_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/user" />
+        </RelativeLayout>
 
     </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

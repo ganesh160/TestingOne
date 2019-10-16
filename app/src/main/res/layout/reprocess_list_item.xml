@@ -1,0 +1,64 @@
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight="0.5"
+                    android:text="FirstName"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:id="@+id/fnmae"
+                    android:layout_weight="0.5"
+                    android:layout_column="2"
+                    android:text="Time" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight="0.5"
+                    android:text="FirstName"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:id="@+id/lnmae"
+                    android:layout_weight="0.5"
+                    android:layout_column="2"
+                    android:text="Time" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight="0.5"
+                    android:text="FirstName"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:id="@+id/emails"
+                    android:layout_weight="0.5"
+                    android:layout_column="2"
+                    android:text="Time" />
+            </TableRow>
+
+        </TableLayout>
+
+</androidx.cardview.widget.CardView>
