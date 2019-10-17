@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testingone.R
+
 import com.example.testingone.model.SqlModels
 import kotlinx.android.synthetic.main.reprocess_list_item.view.*
+import android.R.attr.data
+import com.example.testingone.R
 
-class SQliteAdapter(val context:Context,val dList:List<SqlModels>):
+
+class SQliteAdapter(val context:Context,val dList:ArrayList<SqlModels>):
     RecyclerView.Adapter<SQliteAdapter.ViewHolderss>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SQliteAdapter.ViewHolderss {
@@ -33,5 +36,14 @@ class SQliteAdapter(val context:Context,val dList:List<SqlModels>):
         val fnmae=view.fnmae
         val lnmae=view.lnmae
         val emails=view.emails
+    }
+    fun gerData() :ArrayList<SqlModels>{
+        return dList
+    }
+
+    fun removeItem(position: Int) {
+
+        dList.removeAt(position)
+        notifyItemRemoved(position)
     }
 }

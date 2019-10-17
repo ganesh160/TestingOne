@@ -8,7 +8,9 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.testingone.R
 import com.example.testingone.Util.UImportant
 import com.example.testingone.adapters.SQliteAdapter
@@ -21,7 +23,7 @@ import java.util.zip.Inflater
 
 class FirstAct : AppCompatActivity() {
 
-    lateinit var adapter:SQliteAdapter
+     lateinit var adapter:SQliteAdapter
     lateinit var layouts:View
     lateinit var mAlert:AlertDialog
     var emailVailds: String = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
@@ -101,6 +103,19 @@ class FirstAct : AppCompatActivity() {
             }
             cursor.close()
         }
+
+
+        val ss=object : SwipeToDeleteCallback(this){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                super.onSwiped(viewHolder, direction)
+
+                val adap=recycler_view_list.adapter as SQliteAdapter
+                adap.removeItem(viewHolder.adapterPosition)
+            }
+
+        }
+        val itemTouchHelper = ItemTouchHelper(ss)
+        itemTouchHelper.attachToRecyclerView(recycler_view_list)
 
     }
 
