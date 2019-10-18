@@ -18,6 +18,7 @@ import com.example.testingone.model.SqlModels
 import kotlinx.android.synthetic.main.activity_first.*
 import kotlinx.android.synthetic.main.ading_data_to_databse.*
 import kotlinx.android.synthetic.main.ading_data_to_databse.view.*
+import java.lang.Exception
 import java.util.regex.Pattern
 import java.util.zip.Inflater
 
@@ -110,7 +111,20 @@ class FirstAct : AppCompatActivity() {
                 super.onSwiped(viewHolder, direction)
 
                 val adap=recycler_view_list.adapter as SQliteAdapter
-                adap.removeItem(viewHolder.adapterPosition)
+
+                //code to remove data from the sqlite database
+                try {
+
+                    val deletExe=dbAccess.readableDatabase
+                    val delete="delete from Firsst where lname='"+dlist.get(viewHolder.adapterPosition).lNames+"'"
+                    deletExe.execSQL(delete)
+                    adap.removeItem(viewHolder.adapterPosition)
+
+                }catch (e:Exception){
+                    Toast.makeText(this@FirstAct,""+e.message,Toast.LENGTH_SHORT).show()
+                }
+
+
             }
 
         }
