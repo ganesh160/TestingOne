@@ -263,6 +263,17 @@ class UImportant {
                 return false
             }
         }
+        fun emptyCheckEditBoxHotel(editBox: EditText, errorMsg: String): Boolean {
+            if (editBox.text.toString().trim { it <= ' ' }.length >= 1) {
+                editBox.setError(null)
+                return true
+            } else {
+                editBox.setError(errorMsg)
+                editBox.requestFocus()
+                hideKeyboard(editBox)
+                return false
+            }
+        }
 
 
         fun emptyCheckEditBoxPassword(editBox: EditText, errorMsg: String): Boolean {

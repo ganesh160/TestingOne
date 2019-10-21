@@ -8,6 +8,7 @@
 
 
         <TableLayout
+            android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TableRow
@@ -16,7 +17,7 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:layout_weight="0.5"
-                    android:text="FirstName"
+                    android:text="Item Name"
                     android:layout_column="1"
                     />
                 <TextView
@@ -32,7 +33,7 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:layout_weight="0.5"
-                    android:text="FirstName"
+                    android:text="Item Price"
                     android:layout_column="1"
                     />
                 <TextView
@@ -49,11 +50,27 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:layout_weight="0.5"
-                    android:text="FirstName"
+                    android:text="GST "
                     android:layout_column="1"
                     />
                 <TextView
                     android:id="@+id/emails"
+                    android:layout_weight="0.5"
+                    android:layout_column="2"
+                    android:text="Time" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight="0.5"
+                    android:text="Total "
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:id="@+id/total"
                     android:layout_weight="0.5"
                     android:layout_column="2"
                     android:text="Time" />

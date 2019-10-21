@@ -56,7 +56,7 @@ class FirstAct : AppCompatActivity() {
 
                 layouts.save_btn.setOnClickListener {
                     SaveDataToDataBAse()
-                    mAlert.dismiss()
+
                 }
 
         }
@@ -69,8 +69,9 @@ class FirstAct : AppCompatActivity() {
                 if (UImportant.emptyCheckEditBox(layouts.person_email_input,"Should not be Empty")){
                     if (Pattern.compile(emailVailds).matcher(layouts.person_email_input.text.toString()).matches()){
 
+                        mAlert.dismiss()
                         //here write code for insert data intoi database
-                        codeForSQLiteDBInsertion(layouts.person_name_input.text.toString(),layouts.person_lname_input.text.toString().trim(),layouts.person_email_input.text.toString().trim())
+                        //codeForSQLiteDBInsertion(layouts.person_name_input.text.toString(),layouts.person_lname_input.text.toString().trim(),layouts.person_email_input.text.toString().trim())
                     }else{
                         Toast.makeText(this,"Enter a valid Email",Toast.LENGTH_SHORT).show()
                     }
@@ -79,111 +80,111 @@ class FirstAct : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        val dbAccess=MySQLDBase(this)
-        val readAccess=dbAccess.readableDatabase
-        val cursor=readAccess.rawQuery("select * from Firsst",null)
-
-        if (cursor.moveToFirst())
-        {
-            val ss=cursor.getString(2)
-                do {
-                    dlist.add(SqlModels(cursor.getString(0),cursor.getString(1),cursor.getString(2)))
-
-                }while (cursor.moveToNext())
-            for (i in 0..dlist.size-1)
-            {
-                if (dlist.get(i).eMails.equals(ss)){
-
-                }else{
-                    adapter=SQliteAdapter(this,dlist)
-                    recycler_view_list.layoutManager= LinearLayoutManager(this)
-                    recycler_view_list.adapter=adapter
-                }
-            }
-            cursor.close()
-        }
-
-
-        val ss=object : SwipeToDeleteCallback(this){
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                super.onSwiped(viewHolder, direction)
-
-                val adap=recycler_view_list.adapter as SQliteAdapter
-
-                //code to remove data from the sqlite database
-                try {
-
-                    val deletExe=dbAccess.readableDatabase
-                    val delete="delete from Firsst where lname='"+dlist.get(viewHolder.adapterPosition).lNames+"'"
-                    deletExe.execSQL(delete)
-                    adap.removeItem(viewHolder.adapterPosition)
-
-                }catch (e:Exception){
-                    Toast.makeText(this@FirstAct,""+e.message,Toast.LENGTH_SHORT).show()
-                }
-
-
-            }
-
-        }
-        val itemTouchHelper = ItemTouchHelper(ss)
-        itemTouchHelper.attachToRecyclerView(recycler_view_list)
-
-    }
-
-    fun codeForSQLiteDBInsertion(fName:String,lName:String,Email:String){
-
-        val dbAccess=MySQLDBase(this)
-        val ss=dbAccess.writableDatabase
-
-        val insertQry="insert into Firsst values('"+fName+"','"+lName+"','"+Email+"')"
-
-        ss.execSQL(insertQry)
-
-        //val dbAcces=MySQLDBase(this)
-        val readAccess=dbAccess.readableDatabase
-        val cursor=readAccess.rawQuery("select * from Firsst",null)
-
-        if (cursor.moveToFirst())
-        {
-            val ss=cursor.getString(2)
-            do {
-                dlist.add(SqlModels(cursor.getString(0),cursor.getString(1),cursor.getString(2)))
-
-            }while (cursor.moveToNext())
-            for (i in 0..dlist.size-1)
-            {
-                if (dlist.get(i).eMails.equals(ss)){
-
-                }else{
-                    adapter=SQliteAdapter(this,dlist)
-                    recycler_view_list.layoutManager= LinearLayoutManager(this)
-                    recycler_view_list.adapter=adapter
-                }
-            }
-            cursor.close()
-        }
-
-//       Handler().postDelayed(Runnable { object :Runnable{
-//           override fun run() {
-
-               //code to read data from the database
-//               val readAccess=dbAccess.readableDatabase
-//               val cursor=readAccess.rawQuery("select * from Firsst",null)
+//    override fun onStart() {
+//        super.onStart()
+//        val dbAccess=MySQLDBase(this)
+//        val readAccess=dbAccess.readableDatabase
+//        val cursor=readAccess.rawQuery("select * from Firsst",null)
 //
-//               if (cursor.moveToFirst())
-//               {
-//                   do {
-//                       dlist.add(SqlModels(cursor.getString(0),cursor.getString(1),cursor.getString(2)))
+//        if (cursor.moveToFirst())
+//        {
+//            val ss=cursor.getString(2)
+//                do {
+//                    dlist.add(SqlModels(cursor.getString(0),cursor.getString(1),cursor.getString(2)))
 //
-//                   }while (cursor.moveToNext());
-//                   cursor.close()
-//               }
+//                }while (cursor.moveToNext())
+//            for (i in 0..dlist.size-1)
+//            {
+//                if (dlist.get(i).eMails.equals(ss)){
+//
+//                }else{
+//                    adapter=SQliteAdapter(this,dlist)
+//                    recycler_view_list.layoutManager= LinearLayoutManager(this)
+//                    recycler_view_list.adapter=adapter
+//                }
+//            }
+//            cursor.close()
+//        }
+//
+//
+//        val ss=object : SwipeToDeleteCallback(this){
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                super.onSwiped(viewHolder, direction)
+//
+//                val adap=recycler_view_list.adapter as SQliteAdapter
+//
+//                //code to remove data from the sqlite database
+//                try {
+//
+//                    val deletExe=dbAccess.readableDatabase
+//                    val delete="delete from Firsst where lname='"+dlist.get(viewHolder.adapterPosition).lNames+"'"
+//                    deletExe.execSQL(delete)
+//                    adap.removeItem(viewHolder.adapterPosition)
+//
+//                }catch (e:Exception){
+//                    Toast.makeText(this@FirstAct,""+e.message,Toast.LENGTH_SHORT).show()
+//                }
+//
+//
+//            }
+//
+//        }
+//        val itemTouchHelper = ItemTouchHelper(ss)
+//        itemTouchHelper.attachToRecyclerView(recycler_view_list)
+//
+//    }
 
-//           }
-//       } },2000)
-
-    }
+//    fun codeForSQLiteDBInsertion(fName:String,lName:String,Email:String){
+//
+//        val dbAccess=MySQLDBase(this)
+//        val ss=dbAccess.writableDatabase
+//
+//        val insertQry="insert into Firsst values('"+fName+"','"+lName+"','"+Email+"')"
+//
+//        ss.execSQL(insertQry)
+//
+//        //val dbAcces=MySQLDBase(this)
+//        val readAccess=dbAccess.readableDatabase
+//        val cursor=readAccess.rawQuery("select * from Firsst",null)
+//
+//        if (cursor.moveToFirst())
+//        {
+//            val ss=cursor.getString(2)
+//            do {
+//                dlist.add(SqlModels(cursor.getString(0),cursor.getString(1),cursor.getString(2)))
+//
+//            }while (cursor.moveToNext())
+//            for (i in 0..dlist.size-1)
+//            {
+//                if (dlist.get(i).eMails.equals(ss)){
+//
+//                }else{
+//                    adapter=SQliteAdapter(this,dlist)
+//                    recycler_view_list.layoutManager= LinearLayoutManager(this)
+//                    recycler_view_list.adapter=adapter
+//                }
+//            }
+//            cursor.close()
+//        }
+//
+////       Handler().postDelayed(Runnable { object :Runnable{
+////           override fun run() {
+//
+//               //code to read data from the database
+////               val readAccess=dbAccess.readableDatabase
+////               val cursor=readAccess.rawQuery("select * from Firsst",null)
+////
+////               if (cursor.moveToFirst())
+////               {
+////                   do {
+////                       dlist.add(SqlModels(cursor.getString(0),cursor.getString(1),cursor.getString(2)))
+////
+////                   }while (cursor.moveToNext());
+////                   cursor.close()
+////               }
+//
+////           }
+////       } },2000)
+//
+//    }
 }

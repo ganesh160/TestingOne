@@ -10,7 +10,8 @@ class MySQLDBase(context: Context) : SQLiteOpenHelper(context, "FirstKotlins", n
 val contexts=context
     override fun onCreate(db: SQLiteDatabase?) {
 
-        val createQry="create table Firsst(fname text,lname text,eMail text)"
+        //val createQry="create table Firsst(fname text,lname text,eMail text)"
+        val createQry="create table ItemsInsertion(iName text,iCost text,igst text,itotls text)"
         db!!.execSQL(createQry)
         Toast.makeText(contexts,"table created",Toast.LENGTH_SHORT).show()
     }
