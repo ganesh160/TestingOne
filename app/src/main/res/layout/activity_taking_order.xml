@@ -1,0 +1,81 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:text="Order Taking"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/mobile_number_input"
+            android:hint="Mobile Number"
+            android:inputType="number"
+            android:maxLength="10"
+            android:paddingLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:weightSum="2">
+
+        <Spinner
+            android:id="@+id/item_names"
+            android:layout_margin="1dp"
+            android:layout_weight="1.3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <Spinner
+            android:id="@+id/item_qnty"
+            android:layout_margin="1dp"
+            android:layout_weight="0.6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <TableLayout
+        android:background="#B7112233"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#ffffff"
+                android:layout_weight="0.5"
+                android:text="Item Name"
+                android:layout_column="1"
+                />
+            <TextView
+                android:textColor="#ffffff"
+                android:layout_weight="0.5"
+                android:layout_column="2"
+                android:text="Price" />
+            <TextView
+                android:textColor="#ffffff"
+                android:layout_weight="0.5"
+                android:layout_column="2"
+                android:text="Quantity" />
+            <TextView
+                android:textColor="#ffffff"
+                android:layout_weight="0.5"
+                android:layout_column="2"
+                android:text="Total" />
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

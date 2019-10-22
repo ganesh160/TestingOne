@@ -7,4 +7,8 @@
         android:title="Add"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/adding_order_menu"
+        android:title="Order"
+        />
 </menu>

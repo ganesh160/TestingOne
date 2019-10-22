@@ -61,5 +61,16 @@
             android:layout_height="wrap_content">
         </Button>
 
+        <Button
+            android:text="Update"
+            android:background="#AE113322"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:id="@+id/update_items_btn"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
 </LinearLayout>
 </LinearLayout>
