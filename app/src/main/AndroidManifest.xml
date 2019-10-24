@@ -17,15 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".gpsLocation.GpsActivity">
+        </activity>
+
+        <activity android:name=".HotelWithSqliteDb.TakingOrderAct" />
+        <activity android:name=".HotelWithSqliteDb.FirstActity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".HotelWithSqliteDb.TakingOrderAct" />
-        <activity android:name=".HotelWithSqliteDb.FirstActity">
 
         </activity>
         <activity android:name=".sqldatabase.FirstAct" />

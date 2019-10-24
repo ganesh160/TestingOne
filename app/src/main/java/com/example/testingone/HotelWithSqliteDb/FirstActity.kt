@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -35,6 +37,7 @@ class FirstActity : AppCompatActivity(),ForDeleting {
     lateinit var dlist:ArrayList<HotelModel>
     lateinit var shared:SharedPreferences
     lateinit var spEditor:SharedPreferences.Editor
+    lateinit var adapter:SQliteAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_actity)
@@ -45,6 +48,7 @@ class FirstActity : AppCompatActivity(),ForDeleting {
             displayStoredData()
         }
 
+        listeners()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -122,7 +126,7 @@ class FirstActity : AppCompatActivity(),ForDeleting {
             do {
                  dlist.add(HotelModel(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3)))
             }while (cursor.moveToNext())
-            val adapter= SQliteAdapter(this,dlist)
+            adapter= SQliteAdapter(this,dlist)
             hotel_data_recyclerview.layoutManager= LinearLayoutManager(this)
             hotel_data_recyclerview.adapter=adapter
             adapter.callBack(this)
@@ -197,6 +201,34 @@ class FirstActity : AppCompatActivity(),ForDeleting {
             }
         }
 
+    }
+
+    //ths code for filter with recyclerview
+    fun listeners()
+    {
+        edittext_for_search.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+                if (s!!.toString().equals("",ignoreCase = true)||s!!.toString().equals("null",ignoreCase = true)) {
+                    adapter=SQliteAdapter(this@FirstActity,dlist)
+                    hotel_data_recyclerview.layoutManager= LinearLayoutManager(this@FirstActity)
+                    hotel_data_recyclerview.adapter=adapter
+                    adapter.callBack(this@FirstActity)
+
+                }else {
+                    adapter.filter.filter(s!!.toString())
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+        })
     }
 
 }
