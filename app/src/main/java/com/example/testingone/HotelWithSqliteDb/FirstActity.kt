@@ -51,6 +51,7 @@ class FirstActity : AppCompatActivity(),ForDeleting {
         listeners()
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.hotel_menu,menu)
         return true
@@ -58,7 +59,6 @@ class FirstActity : AppCompatActivity(),ForDeleting {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-
             R.id.adding_menus ->{
                 //here code for adding data into the pertivular restaurant
                 layout = LayoutInflater.from(this).inflate(R.layout.adding_hotel_item_info, null)
