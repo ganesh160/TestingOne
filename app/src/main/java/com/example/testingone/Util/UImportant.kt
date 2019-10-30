@@ -808,5 +808,19 @@ class UImportant {
             alert.setCancelable(false)
             alert.show()
         }
+
+
+
+        fun showAlert(context : Context) {
+            val alert = AlertDialog.Builder(context)
+            alert.setTitle("Alert")
+            alert.setCancelable(false)
+            alert.setMessage("Your session expired, Please Re-Login.")
+            alert.setPositiveButton("OK") { dialog, which ->
+                dialog.dismiss()
+                //mDrawerLayout.openDrawer(Gravity.END);
+            }
+            alert.show()
+        }
     }
 }
